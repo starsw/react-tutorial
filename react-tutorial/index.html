@@ -1,4 +1,7 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko"  xml:lang="ko">
+<meta http-equiv="Content-Type" Content="text/html; charset=utf-8" />
 <head>
     <title>Hello React</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.2/react.min.js"></script>
@@ -8,11 +11,32 @@
 <body>
 <div id="content"></div>
 <script type="text/jsx">
+
+    var CommentList = React.createClass({
+        render: function() {
+            return (
+                    <div className="commentList">
+                        안녕! 난 댓글목록이야.
+                    </div>
+            );
+        }
+    });
+    var CommentForm = React.createClass({
+        render: function() {
+            return (
+                    <div className="commentForm">
+                        안녕! 난 댓글 폼이야.
+                    </div>
+            );
+        }
+    });
     var CommentBox = React.createClass({
         render: function() {
             return (
                     <div className="commentBox">
-                        Hello, world! I am a CommentBox.
+                        <h1>댓글</h1>
+                        <CommentList />
+                        <CommentForm />
                     </div>
             );
         }
