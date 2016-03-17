@@ -12,11 +12,24 @@
 <div id="content"></div>
 <script type="text/jsx">
 
+    var Comment = React.createClass({
+        render: function() {
+            return (
+                    <div className="comment">
+                        <h2 className="commentAuthor">
+                            {this.props.author}
+                        </h2>
+                        {this.props.children}
+                    </div>
+            );
+        }
+    });
     var CommentList = React.createClass({
         render: function() {
             return (
                     <div className="commentList">
-                        안녕! 난 댓글목록이야.
+                        <Comment author="Pete Hunt">댓글입니다</Comment>
+                        <Comment author="Jordan Walke">*또 다른* 댓글입니다</Comment>
                     </div>
             );
         }
