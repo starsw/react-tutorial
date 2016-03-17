@@ -4,73 +4,16 @@
 <meta http-equiv="Content-Type" Content="text/html; charset=utf-8" />
 <head>
     <title>Hello React</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.2/react.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.2/JSXTransformer.js"></script>
-    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
 </head>
 <body>
 <div id="content"></div>
-<script type="text/jsx">
-    var data = [
-        {author: "Pete Hunt", text: "댓글입니다"},
-        {author: "Jordan Walke", text: "*또 다른* 댓글입니다"}
-    ];
-
-
-    var Comment = React.createClass({
-        render: function() {
-            var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
-            return (
-                    <div className="comment">
-                        <h2 className="commentAuthor">
-                            {this.props.author}
-                        </h2>
-                        <span dangerouslySetInnerHTML={{__html: rawMarkup}} />
-                    </div>
-            );
-        }
-    });
-    var CommentList = React.createClass({
-        render: function() {
-            var commentNodes = this.props.data.map(function (comment) {
-                return (
-                        <Comment author={comment.author}>
-                            {comment.text}
-                        </Comment>
-                );
-            });
-            return (
-                    <div className="commentList">
-                        {commentNodes}
-                    </div>
-            );
-        }
-    });
-    var CommentForm = React.createClass({
-        render: function() {
-            return (
-                    <div className="commentForm">
-                        안녕! 난 댓글 폼이야.
-                    </div>
-            );
-        }
-    });
-    var CommentBox = React.createClass({
-        render: function() {
-            return (
-                    <div className="commentBox">
-                        <h1>댓글</h1>
-                        <CommentList data={this.props.data} />
-                        <CommentForm />
-                    </div>
-            );
-        }
-    });
-    React.render(
-            <CommentBox data={data} />,
-            document.getElementById('content')
-    );
+<script type="text/babel" src="js/example.js"></script>
+<script type="text/babel">
 </script>
 </body>
 </html>
